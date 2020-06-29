@@ -1,4 +1,4 @@
 module.exports = {
-    baseUrl: '',
-    env: {}
+  baseUrl: '',
+  env: {},
 };
