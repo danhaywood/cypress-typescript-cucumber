@@ -1,0 +1,38 @@
+= README
+
+== Setup IntelliJ Project
+
+* New Project
++
+image::_docs/images/setup-project.png[width=400px]
+
+* node.js project
++
+image::_docs/images/node-project.png[width=400px]
+
+== IntelliJ Plugins
+
+Installed:
+
+* Cucumber.js
+* Run Configuration for Typescript
+* Asciidoc
+
+Built-in:
+
+* Node.js
+
+Disabled built-in:
+
+* Cucumber for Java
+
+== Project setup
+
+Following link:https://fullstackhq.io/the-no-tears-cypress-setup/[fullstackhq.io/the-no-tears-cypress-setup] from Nov 2019:
+
+* install cypress
++
+[source,bash]
+----
+npm install -D cypress
+----

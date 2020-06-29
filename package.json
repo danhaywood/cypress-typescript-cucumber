@@ -1,0 +1,23 @@
+{
+  "name": "cypress-typescript-cucumber",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danhaywood/cypress-typescript-cucumber.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danhaywood/cypress-typescript-cucumber/issues"
+  },
+  "homepage": "https://github.com/danhaywood/cypress-typescript-cucumber#readme",
+  "devDependencies": {
+    "cypress": "^4.9.0"
+  }
+}
