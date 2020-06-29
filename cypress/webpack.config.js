@@ -13,6 +13,14 @@ module.exports = {
                         loader: "ts-loader"
                     }
                 ]
+            },
+            {
+                test: /\.feature$/,
+                use: [
+                    {
+                        loader: "cypress-cucumber-preprocessor/loader"
+                    }
+                ]
             }
         ]
     }

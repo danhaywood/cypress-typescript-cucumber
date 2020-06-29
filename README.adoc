@@ -141,3 +141,45 @@ module.exports = (on, config) => {
 +
 see original documentation ... `plugins/config/{local|qa|prod}.js`
 
+* install cucumber support:
++
+[source,bash]
+----
+npm install -D cypress-cucumber-preprocessor
+----
++
+* configure cypress:
++
+[source,json]
+.cypress.json
+----
+{
+ "testFiles": "**/*.feature"
+}
+----
++
+and
++
+[source,json]
+.package.json
+----
+"cypress-cucumber-preprocessor": {
+  "nonGlobalStepDefinitions": true
+}
+----
++
+and this rule:
++
+[source,javascript,indent=0]
+.cypress/webpack.config.js
+----
+            {
+                test: /\.feature$/,
+                use: [
+                    {
+                        loader: "cypress-cucumber-preprocessor/loader"
+                    }
+                ]
+            }
+----
+*
