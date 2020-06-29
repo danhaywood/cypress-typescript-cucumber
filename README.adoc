@@ -53,3 +53,91 @@ npm install -D cypress
 ----
 npm install -D ts-loader @cypress/webpack-preprocessor @babel/core @babel/preset-env babel-loader webpack typescript
 ----
+
+* setup webpack
++
+[source,javascript]
+.cypress/webpack.config.js
+----
+module.exports = {
+    resolve: {
+        extensions: [".ts", ".js"]
+    },
+    node: { fs: "empty", child_process: "empty", readline: "empty" },
+    module: {
+        rules: [
+            {
+                test: /\.ts$/,
+                exclude: [/node_modules/],
+                use: [
+                    {
+                        loader: "ts-loader"
+                    }
+                ]
+            }
+        ]
+    }
+};
+----
+
+* setup typescript config
++
+[source,json]
+.cypress/tsconfig.json
+----
+{
+  "compilerOptions": {
+    "strict": true,
+    "baseUrl": "../node_modules",
+    "target": "es5",
+    "lib": ["es5", "dom"],
+    "types": ["cypress"]
+  },
+  "include": [
+    "**/*.ts"
+  ]
+}
+----
+
+* setup preprocessor:
++
+[source,javascript]
+.cypress/plugins/preprocess.js
+----
+const webpack = require('@cypress/webpack-preprocessor')
+
+const options = {
+    webpackOptions: require("../webpack.config.js")
+};
+
+module.exports = webpack(options)
+----
++
+and:
++
+[source,javascript]
+.cypress/plugins/index.js
+----
+const preprocess = require('./preprocess');
+
+/**
+ * @type {Cypress.PluginConfig}
+ */
+module.exports = (on, config) => {
+    on("file:preprocessor", preprocess);
+
+    const targetEnv = config.env.TARGET_ENV || 'qa';
+
+    const environmentConfig = require(`./config/${targetEnv}`);
+
+    return {
+        ...config,
+        ...environmentConfig,
+    };
+}
+----
+
+* setup environment configs
++
+see original documentation ... `plugins/config/{local|qa|prod}.js`
+
