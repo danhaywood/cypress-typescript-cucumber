@@ -173,13 +173,13 @@ and this rule:
 [source,javascript,indent=0]
 .cypress/webpack.config.js
 ----
-            {
-                test: /\.feature$/,
-                use: [
-                    {
-                        loader: "cypress-cucumber-preprocessor/loader"
-                    }
-                ]
-            }
+{
+    test: /\.feature$/,
+    use: [
+        {
+            loader: "cypress-cucumber-preprocessor/loader"
+        }
+    ]
+}
 ----
 *
