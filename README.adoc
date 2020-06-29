@@ -184,3 +184,13 @@ and this rule:
 ----
 
 * create example `search.feature` and spec  (see article).
+
+
+== gts config
+
+* init
++
+[source,bash]
+----
+npx gts init
+----
