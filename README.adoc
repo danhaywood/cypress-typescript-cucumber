@@ -47,3 +47,9 @@ npm install -D cypress
   },
 ----
 
+* setup typescript:
++
+[source,bash]
+----
+npm install -D ts-loader @cypress/webpack-preprocessor @babel/core @babel/preset-env babel-loader webpack typescript
+----
