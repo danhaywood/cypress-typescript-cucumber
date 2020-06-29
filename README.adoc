@@ -36,3 +36,14 @@ Following link:https://fullstackhq.io/the-no-tears-cypress-setup/[fullstackhq.io
 ----
 npm install -D cypress
 ----
+
+* configured script in `package.json` to start cypress:
++
+[source,json]
+----
+{
+  "scripts": {
+    "cypress:open": "npx cypress open"
+  },
+----
+
