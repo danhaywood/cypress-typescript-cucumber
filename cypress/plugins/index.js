@@ -21,6 +21,13 @@ module.exports = (on, config) => {
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
     on("file:preprocessor", preprocess);
+
+    const targetEnv = config.env.TARGET_ENV || 'qa';
+
+    const environmentConfig = require(`./config/${targetEnv}`);
+
+    return {
+        ...config,
+        ...environmentConfig,
+    };
 }
-
-
